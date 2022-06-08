@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp.MainPage">
+
+    <StackLayout BackgroundColor="DeepSkyBlue">
+
+        <Label Text="{Binding name}" Margin="0,50,0,0" TextColor=" White" HorizontalOptions="CenterAndExpand" FontSize="50" FontAttributes="None" />
+        <Label Text="{Binding main.temp, StringFormat='{0:F0}&#176;C'}"  TextColor="White" FontSize="65" FontAttributes="None" HorizontalOptions="CenterAndExpand"/>
+
+        <Frame OutlineColor="DeepSkyBlue"
+               BackgroundColor="DeepSkyBlue"
+               Margin="20,20,20,0"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="temperatureicon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text=" Temperature" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                <Label Text="{Binding main.temp, StringFormat='{0:F0}&#176;C'}" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame OutlineColor="DeepSkyBlue"
+               BackgroundColor="DeepSkyBlue"
+               Margin="20,0,20,0"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="humidityicon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text=" Humidity" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                <Label Text="{Binding main.humidity, StringFormat='{0:F0}%'}" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame OutlineColor="DeepSkyBlue"
+               BackgroundColor="DeepSkyBlue"
+               Margin="20,0,20,0"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="pressureicon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text=" Pressure" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                <Label Text="{Binding main.pressure, StringFormat='{0:F0}hPa'}" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame OutlineColor="DeepSkyBlue"
+               BackgroundColor="DeepSkyBlue"
+               Margin="20,0,20,0"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="cloudicon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text=" Cloud Cover" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                <Label Text="{Binding clouds.all, StringFormat='{0:F0}%'}" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+
+        <Frame OutlineColor="DeepSkyBlue"
+               BackgroundColor="DeepSkyBlue"
+               Margin="20,0,20,0"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="windicon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text=" Wind Speed" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                <Label Text="{Binding wind.speed, StringFormat='{0:F0}m/s'}" TextColor="White" FontSize="25" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
