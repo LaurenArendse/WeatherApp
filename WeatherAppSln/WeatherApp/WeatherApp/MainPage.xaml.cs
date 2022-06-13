@@ -15,15 +15,42 @@ namespace WeatherApp
 {
     public partial class MainPage : ContentPage
     {
-        
+        private WeatherInfo _weatherInfo;
+
+        private string _mainIcon;
+
+        public string MainIcon
+        {
+            get { return _mainIcon; }
+            set
+            {
+                _mainIcon = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public WeatherInfo Weather
+        {
+            get { return _weatherInfo; }
+            set
+            {
+                _weatherInfo = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         public MainPage()
         {
             InitializeComponent();
 
+
+            BindingContext = this;
+
         }
 
-       
+
         public async Task<Location> GetLocation()
         {
             Location location = await Geolocation.GetLocationAsync();
@@ -41,7 +68,9 @@ namespace WeatherApp
             base.OnAppearing();
             Location loc = await GetLocation();
             WeatherInfo info = await GetRemoteWeather(loc);
-            BindingContext = info;
+
+            Weather = info;
+            ApplyMainIcon();
         }
 
        
@@ -59,6 +88,42 @@ namespace WeatherApp
 
             return info;
         }
-       
+
+        public void ApplyMainIcon()
+        {
+            for (int i = 0; i < _weatherInfo.weather[0].main.Length; i++)
+            {
+                if (_weatherInfo.weather[0].main.ToLower().Contains("clear"))
+                {
+                    MainIcon = "sunny.png";
+                }
+                else if (_weatherInfo.weather[0].main.Contains("Clouds"))
+                {
+                    MainIcon = "cloudy.png";
+                }
+                else if (_weatherInfo.weather[0].main.Contains("Shower"))
+                {
+                    MainIcon = "lightrain.png";
+                }
+                else if (_weatherInfo.weather[0].main.Contains("Rain"))
+                {
+                    MainIcon = "heavyrain.png";
+                }
+                else if (_weatherInfo.weather[0].main.Contains("Thunderstorm"))
+                {
+                    MainIcon = "stormy.png";
+                }
+                else if (_weatherInfo.weather[0].main.Contains("Snow"))
+                {
+                    MainIcon = "snowy.png";
+                }
+                //else if (_weatherInfo.weather[0].main.Contains("Mist"))
+                //{
+                //    MainIcon = 
+                //}
+            }
+
+            //BindingContext = this;
+        }
     }
 }
