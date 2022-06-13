@@ -4,7 +4,12 @@
              x:Class="WeatherApp.MainPage">
 
     <StackLayout BackgroundColor="DeepSkyBlue">
-
+        <!--<ActivityIndicator IsVisible="True"
+                           IsRunning="True"
+                           Color="White" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="CenterAndExpand"/>-->
+                            
         <Label Text="{Binding Weather.name}" Margin="0,50,0,0" TextColor=" White" HorizontalOptions="CenterAndExpand" FontSize="50" FontAttributes="None" />
         <Label Text="{Binding Weather.main.temp, StringFormat='{0:F0}&#176;C'}"  TextColor="White" FontSize="65" FontAttributes="None" HorizontalOptions="CenterAndExpand"/>
         <Image Source="{Binding MainIcon}" HeightRequest="120" WidthRequest="120" Margin="0"/>
@@ -65,6 +70,7 @@
             </StackLayout>
         </Frame>
 
+       
     </StackLayout>
 
 </ContentPage>

@@ -97,33 +97,33 @@ namespace WeatherApp
                 {
                     MainIcon = "sunny.png";
                 }
-                else if (_weatherInfo.weather[0].main.Contains("Clouds"))
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("clouds"))
                 {
                     MainIcon = "cloudy.png";
                 }
-                else if (_weatherInfo.weather[0].main.Contains("Shower"))
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("shower"))
                 {
                     MainIcon = "lightrain.png";
                 }
-                else if (_weatherInfo.weather[0].main.Contains("Rain"))
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("rain"))
                 {
                     MainIcon = "heavyrain.png";
                 }
-                else if (_weatherInfo.weather[0].main.Contains("Thunderstorm"))
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("thunderstorm"))
                 {
                     MainIcon = "stormy.png";
                 }
-                else if (_weatherInfo.weather[0].main.Contains("Snow"))
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("snow"))
                 {
                     MainIcon = "snowy.png";
                 }
-                //else if (_weatherInfo.weather[0].main.Contains("Mist"))
-                //{
-                //    MainIcon = 
-                //}
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("mist"))
+                {
+                    MainIcon = "cloudy.png";
+                }
             }
 
-            //BindingContext = this;
+            
         }
     }
 }
