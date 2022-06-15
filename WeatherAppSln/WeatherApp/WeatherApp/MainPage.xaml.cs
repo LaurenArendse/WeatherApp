@@ -99,6 +99,10 @@ namespace WeatherApp
                 }
                 else if (_weatherInfo.weather[0].main.ToLower().Contains("clouds"))
                 {
+                    MainIcon = "cloudicon.png";
+                }
+                else if (_weatherInfo.weather[0].main.ToLower().Contains("overcast"))
+                {
                     MainIcon = "cloudy.png";
                 }
                 else if (_weatherInfo.weather[0].main.ToLower().Contains("shower"))
